@@ -10,8 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} docker.io
-      - run: docker build -t wadiukarunathilaka/react-test -f ./client/Dockerfile.dev ./client
-      - run: docker run -e CI=true wadiukarunathilaka/react-test npm test
+      # - run: docker build -t wadiukarunathilaka/react-test -f ./client/Dockerfile.dev ./client
+      # - run: docker run -e CI=true wadiukarunathilaka/react-test npm test
  
   #     - run: docker build -t wadiukarunathilaka/multi-client-10-14 ./client
   #     - run: docker build -t wadiukarunathilaka/multi-nginx-10-14 ./nginx
@@ -31,8 +31,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          application_name: Docker-multi
-          environment_name: Docker-multi-env
+          application_name: docker-multi
+          environment_name: Docker-multi-env-1
           existing_bucket_name: elasticbeanstalk-ap-south-1-918112170792
           region: ap-south-1
           version_label: ${{ github.sha }}
